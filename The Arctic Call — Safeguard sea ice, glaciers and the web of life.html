@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Arctic Call — Safeguard sea ice, glaciers and the web of life</title>
+<meta name="description" content="A global network of citizens and leaders answering a call from the Arctic to protect sea ice, glaciers and the web of life. Join an expedition or the network.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f9fa;--fg:#0d2230;--muted:#4a6270;--card:#ffffff;--line:#cfe0e4;
+  --deep:#0b2233;--ice:#e3f1f3;--teal:#1f7a8c;--sun:#f2c14e;--on-sun:#0b2233;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;--sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0a1b27;--fg:#e6f2f4;--muted:#9bb4bf;--card:#112a39;--line:#1e3d4f;--teal:#5fc0d3;--ice:#12303f;
+}}
+:root[data-theme="dark"]{--bg:#0a1b27;--fg:#e6f2f4;--muted:#9bb4bf;--card:#112a39;--line:#1e3d4f;--teal:#5fc0d3;--ice:#12303f}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,4.2vw,2.9rem);max-width:20ch}
+h3{font-size:1.3rem;font-weight:600}
+p{margin:0 0 1em;max-width:62ch}
+.lead{font-size:1.2rem;color:var(--muted)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--deep) 92%,transparent);backdrop-filter:blur(8px);color:#e6f2f4}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem}
+.brand{display:block;line-height:0}
+.logo{height:50px;width:auto;display:block}
+.nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;font-size:.95rem}
+.nav a{text-decoration:none;opacity:.85}.nav a:hover{opacity:1}
+@media(max-width:720px){.nav ul li:not(:last-child){display:none}}
+
+.btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;font-size:1rem;cursor:pointer;font-family:inherit}
+.btn-sun{background:var(--sun);color:var(--on-sun)}.btn-sun:hover{filter:brightness(1.06)}
+.btn-line{border-color:rgba(230,242,244,.55);color:#e6f2f4}.btn-line:hover{background:rgba(230,242,244,.1)}
+.btn-dark{background:var(--deep);color:#e6f2f4}
+
+/* hero: the call, as sound rings over an ice horizon */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#071722 0%,#0f3347 62%,#2b6f84 100%);color:#e6f2f4;padding:clamp(4rem,11vw,8rem) 0 0}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.6rem,7.5vw,5.4rem);max-width:13ch}
+.hero p{font-size:1.2rem;color:#c3dce3;margin:1.4rem 0 2rem;max-width:48ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem}
+.map{position:absolute;right:-3%;top:-4%;width:min(920px,135vw);aspect-ratio:1800/1424;z-index:1;pointer-events:none}
+.map .m{position:absolute;inset:0;width:100%;height:100%}
+.map .tag{position:absolute;left:70%;top:60%;font:400 1.15rem var(--serif);letter-spacing:.06em;color:#e6f2f4;opacity:.85}
+.rings{position:absolute;left:53.33%;top:52.11%;width:60%;aspect-ratio:1;transform:translate(-50%,-50%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(7,23,34,.72),rgba(7,23,34,0) 62%)}
+@media(max-width:720px){.map .m{opacity:.75}.map .tag{display:none}}
+.rings i{position:absolute;inset:0;border:1.5px solid rgba(242,193,78,.55);border-radius:50%;transform:scale(.08);opacity:0;animation:call 7s cubic-bezier(.2,.6,.3,1) infinite}
+.rings i:nth-child(2){animation-delay:1.75s}.rings i:nth-child(3){animation-delay:3.5s}.rings i:nth-child(4){animation-delay:5.25s}
+.rings b{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px;border-radius:50%;background:var(--sun)}
+@keyframes call{0%{transform:scale(.04);opacity:.9}100%{transform:scale(1);opacity:0}}
+@media(prefers-reduced-motion:reduce){.rings i{animation:none;opacity:.35;transform:scale(.3)}.rings i:nth-child(2){transform:scale(.55)}.rings i:nth-child(3){transform:scale(.8)}.rings i:nth-child(4){transform:scale(1)}html{scroll-behavior:auto}}
+.ice{display:block;width:100%;height:clamp(90px,14vw,170px);margin-top:3.5rem;position:relative;z-index:2}
+
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.alt{background:var(--ice)}
+.head{margin-bottom:2.2rem}
+
+/* mission */
+.mission{display:grid;gap:2.5rem;grid-template-columns:1fr 1fr;align-items:start}
+.mission blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.3}
+@media(max-width:820px){.mission{grid-template-columns:1fr}}
+
+/* three aims: one dominant, two supporting */
+.aims{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;grid-template-columns:repeat(3,1fr)}
+.aims div{background:var(--card);padding:1.8rem}
+.aims p{color:var(--muted);margin:.6rem 0 0}
+@media(max-width:820px){.aims{grid-template-columns:1fr}}
+
+/* expedition */
+.exp{background:var(--deep);color:#e6f2f4}
+.exp h2{max-width:18ch}
+.exp .lead{color:#b6cfd7}
+.facts{display:grid;gap:1.4rem;grid-template-columns:repeat(3,1fr);margin:2.4rem 0}
+.facts div{border-top:2px solid var(--sun);padding-top:1rem}
+.facts dt{font-family:var(--serif);font-size:1.25rem;margin-bottom:.3rem}
+.facts dd{margin:0;color:#b6cfd7}
+@media(max-width:820px){.facts{grid-template-columns:1fr}}
+
+/* take-home */
+.take{display:grid;gap:2rem 3rem;grid-template-columns:1fr 1fr}
+.take div{border-left:3px solid var(--teal);padding-left:1.2rem}
+.take p{color:var(--muted);margin:.4rem 0 0}
+@media(max-width:720px){.take{grid-template-columns:1fr}}
+
+/* voices */
+.voices{display:grid;gap:2.5rem;grid-template-columns:1fr 1fr}
+.voices figure{margin:0}
+.voices blockquote{margin:0 0 1rem;font-family:var(--serif);font-size:1.55rem;line-height:1.3}
+.voices figcaption{color:var(--muted);font-size:.95rem}
+@media(max-width:820px){.voices{grid-template-columns:1fr}}
+
+/* join */
+.join{display:grid;gap:2.5rem;grid-template-columns:1fr 1fr;align-items:center}
+form{display:flex;gap:.6rem;flex-wrap:wrap}
+input[type=email]{flex:1 1 220px;padding:.85rem 1.1rem;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--fg);font:inherit}
+input[type=email]:focus{border-color:var(--teal);outline:none}
+.note{font-size:.9rem;color:var(--muted);margin:.7rem 0 0}
+#ok{color:var(--teal);font-weight:600;min-height:1.5em}
+@media(max-width:820px){.join{grid-template-columns:1fr}}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:1.1rem 0;max-width:760px}
+summary{cursor:pointer;font-weight:600;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--teal);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin:.7rem 0 0}
+
+footer{background:var(--deep);color:#b6cfd7;padding:3rem 0 2.5rem;font-size:.95rem}
+footer .wrap{display:grid;gap:2rem;grid-template-columns:2fr 1fr 1fr}
+footer h3{color:#e6f2f4;font-size:1.1rem;margin-bottom:.6rem}
+footer ul{list-style:none;margin:0;padding:0}
+footer a{text-decoration:none}footer a:hover{text-decoration:underline}
+@media(max-width:720px){footer .wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="The Arctic Call, home"><svg class="logo" viewBox="28 50 128 84" role="img" aria-label="The Arctic Call"><path fill="#fff" d="M71.5 57L40.7 110.4H50L71.5 75.6L92 110.4H101.7Z M141.7 56.9L94.9 83.6L141.7 110.2V102.3L110.8 83.6L141.7 64.5Z"/><path fill="#fff" d="M43.42 122.35H38.14L37.13 125.1H35.9L40.13 113.65H41.44L45.66 125.1H44.43ZM43.07 121.38 40.78 115.11 38.49 121.38ZM54.52 125.1 51.64 120.25H49.5V125.1H48.34V113.5H51.83Q53.77 113.5 54.77 114.43Q55.78 115.36 55.78 116.87Q55.78 118.13 55.06 119.02Q54.33 119.91 52.92 120.17L55.91 125.1ZM49.5 119.31H51.84Q53.2 119.31 53.89 118.64Q54.58 117.98 54.58 116.87Q54.58 115.72 53.92 115.1Q53.25 114.48 51.83 114.48H49.5ZM64.05 113.37Q66 113.37 67.38 114.29Q68.77 115.21 69.4 116.89H68.04Q67.54 115.71 66.52 115.04Q65.5 114.38 64.05 114.38Q62.78 114.38 61.76 114.98Q60.74 115.57 60.15 116.69Q59.57 117.81 59.57 119.29Q59.57 120.77 60.15 121.88Q60.74 122.99 61.76 123.59Q62.78 124.19 64.05 124.19Q65.5 124.19 66.52 123.53Q67.54 122.88 68.04 121.71H69.4Q68.77 123.37 67.37 124.29Q65.98 125.2 64.05 125.2Q62.46 125.2 61.17 124.44Q59.87 123.69 59.13 122.35Q58.38 121 58.38 119.29Q58.38 117.58 59.13 116.23Q59.87 114.88 61.17 114.12Q62.46 113.37 64.05 113.37ZM79.32 113.5V114.46H76.1V125.1H74.94V114.46H71.7V113.5ZM83.15 113.5V125.1H81.99V113.5ZM91.76 113.37Q93.7 113.37 95.08 114.29Q96.47 115.21 97.1 116.89H95.74Q95.24 115.71 94.22 115.04Q93.2 114.38 91.76 114.38Q90.48 114.38 89.46 114.98Q88.44 115.57 87.86 116.69Q87.28 117.81 87.28 119.29Q87.28 120.77 87.86 121.88Q88.44 122.99 89.46 123.59Q90.48 124.19 91.76 124.19Q93.2 124.19 94.22 123.53Q95.24 122.88 95.74 121.71H97.1Q96.47 123.37 95.08 124.29Q93.68 125.2 91.76 125.2Q90.16 125.2 88.87 124.44Q87.57 123.69 86.83 122.35Q86.08 121 86.08 119.29Q86.08 117.58 86.83 116.23Q87.57 114.88 88.87 114.12Q90.16 113.37 91.76 113.37Z"/><path fill="#fff" d="M106.73 113.37Q108.8 113.37 110.27 114.46Q111.74 115.55 112.24 117.43H109.13Q108.78 116.71 108.15 116.33Q107.51 115.95 106.7 115.95Q105.39 115.95 104.58 116.85Q103.78 117.76 103.78 119.28Q103.78 120.8 104.58 121.71Q105.39 122.62 106.7 122.62Q107.51 122.62 108.15 122.24Q108.78 121.86 109.13 121.13H112.24Q111.74 123.02 110.27 124.1Q108.8 125.18 106.73 125.18Q105.05 125.18 103.72 124.43Q102.39 123.68 101.64 122.34Q100.9 121 100.9 119.28Q100.9 117.56 101.64 116.22Q102.39 114.87 103.72 114.12Q105.05 113.37 106.73 113.37ZM123.04 123.05H118.71L118.02 125.1H115.06L119.25 113.5H122.53L126.72 125.1H123.73ZM122.31 120.87 120.87 116.62 119.45 120.87ZM132.67 122.92H136.37V125.1H129.84V113.5H132.67ZM142.4 122.92H146.1V125.1H139.57V113.5H142.4Z"/><path fill="#bfe6f0" d="M68.98 106.2V106.67H67.78V110.6H67.21V106.67H66V106.2ZM73.17 106.2V110.6H72.59V108.61H70.35V110.6H69.78V106.2H70.35V108.13H72.59V106.2ZM74.81 106.67V108.14H76.41V108.61H74.81V110.13H76.6V110.6H74.23V106.19H76.6V106.67Z"/></svg></a>
+    <ul>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#expedition">Expedition</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#join">Join the network</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="map" aria-hidden="true">
+    <svg class="m" viewBox="0 0 1800 1424"><path fill="#e3f1f3" fill-opacity=".3" fill-rule="evenodd" d="M693,1318L693,1326L696,1328L698,1322ZM1076,1120L1072,1123L1067,1122L1067,1130ZM583,1002L586,1014L590,1017L592,1011ZM1056,861L1049,861L1042,867L1036,865L1033,867L1032,872L1025,872L1021,876L992,873L983,878L968,881L953,893L946,894L942,900L950,917L965,929L966,938L977,941L983,946L978,948L980,953L975,956L974,962L976,970L968,977L967,985L957,1005L957,1031L959,1037L944,1041L939,1045L937,1059L940,1065L937,1069L937,1078L953,1077L956,1080L963,1072L972,1067L997,1066L1001,1061L1004,1062L1007,1059L1006,1056L1015,1047L1022,1043L1026,1044L1032,1035L1036,1036L1041,1043L1041,1055L1044,1058L1045,1047L1061,1046L1062,1051L1066,1054L1064,1057L1044,1061L1044,1065L1050,1070L1048,1083L1041,1086L1041,1094L1046,1098L1046,1109L1039,1115L1037,1124L1042,1133L1054,1121L1065,1118L1069,1100L1081,1093L1104,1062L1107,1051L1115,1043L1114,1039L1120,1037L1120,1018L1129,1013L1132,996L1126,992L1126,986L1130,979L1130,974L1127,971L1138,957L1132,947L1121,947L1117,951L1107,953L1102,957L1097,956L1090,949L1086,940L1076,929L1076,923L1070,908L1070,899L1074,894L1074,881L1070,873ZM1000,766L990,766L993,773L991,775L985,774L987,779L983,780L969,766L967,752L958,751L952,757L954,764L952,772L938,777L928,776L920,784L911,784L899,793L898,799L913,799L925,807L928,822L927,830L929,834L934,834L935,840L925,843L934,846L934,858L930,861L931,870L929,872L925,871L929,878L931,878L932,867L936,864L941,865L941,870L946,867L947,871L952,873L962,864L974,862L992,855L995,858L1009,858L1015,843L1017,819L1011,810L1011,794L1005,786L1005,778ZM959,742L958,748L962,749L964,746ZM1261,700L1255,709L1259,713L1262,736L1275,749L1286,747L1286,737L1289,733L1281,731L1277,727L1278,722L1269,710L1266,701ZM346,673L349,680L346,696L348,712L356,726L358,738L365,742L364,750L370,762L370,772L374,777L378,799L384,807L389,803L409,820L413,826L414,835L422,843L422,867L438,871L438,849L432,841L430,829L426,823L425,806L416,806L410,800L401,784L402,779L398,776L389,776L388,769L391,766L388,761L389,756L385,755L384,743L377,737L376,733L384,720L382,715L371,707L374,692L362,679ZM1339,688L1343,693L1350,691L1355,703L1354,694L1366,685L1395,681L1425,688L1431,677L1443,676L1447,673L1441,667L1420,676L1417,674L1412,675L1404,667L1401,656L1372,655L1370,658L1375,665L1362,671L1358,669L1351,679ZM982,649L984,653L993,651L993,649L987,650L984,647ZM1467,645L1472,651L1481,644L1471,643ZM897,627L900,630L898,637L907,638L906,643L917,642L917,639L921,636L930,636L937,628L935,622L931,622L918,612L907,615L902,611L903,615L900,614ZM898,557L892,555L887,558L892,563L887,568L887,575L898,574L896,571ZM870,523L872,541L887,537L893,543L899,545L901,541L895,539L894,534L888,530L885,523ZM872,433L880,435L879,430L874,429ZM361,421L361,424L367,427L361,433L362,441L367,443L374,441L376,438L379,439L378,433L374,430L374,423L371,420ZM357,405L356,410L359,413L374,414L376,416L369,404L361,401ZM577,316L572,317L572,325L575,321L579,321ZM672,309L667,316L667,320L659,329L654,349L656,363L662,368L662,372L666,376L656,377L647,373L638,373L636,395L640,403L638,406L642,419L641,434L644,438L645,448L648,450L650,467L649,489L653,503L652,521L655,528L655,559L660,564L661,570L666,577L667,607L672,614L674,631L679,638L679,654L683,657L686,666L684,680L680,680L674,670L673,663L665,654L665,646L660,640L662,626L645,595L640,604L640,613L635,614L633,597L637,592L637,586L642,579L641,570L634,564L632,554L626,546L626,537L622,535L623,516L619,516L620,500L618,500L620,488L615,489L611,484L612,464L615,458L606,451L606,446L602,441L602,432L595,424L596,420L587,405L587,400L577,398L572,394L569,395L569,401L562,408L561,422L557,426L557,430L553,432L553,436L559,439L552,442L548,448L557,454L543,456L534,473L540,491L536,496L542,499L545,506L542,510L542,521L549,527L550,542L545,548L541,559L533,557L533,551L536,548L534,543L536,541L536,529L528,516L527,506L524,505L521,498L513,493L510,493L508,497L512,507L510,511L506,504L497,500L501,488L497,483L504,483L513,470L513,466L505,460L489,460L478,465L470,464L470,469L464,476L464,482L453,486L451,484L451,470L453,467L447,464L448,458L452,462L464,463L471,452L470,450L475,449L483,439L484,430L496,429L497,424L520,427L525,432L530,430L523,426L527,424L528,419L531,420L535,417L535,411L539,407L542,396L537,372L532,368L519,377L509,377L505,383L487,388L482,399L470,401L467,406L465,405L461,409L458,407L464,402L460,400L460,395L456,398L459,392L457,383L454,383L451,379L446,379L444,381L445,388L441,391L443,407L450,414L453,433L448,434L442,422L442,434L440,436L436,431L435,416L430,411L430,396L422,396L425,390L425,380L408,381L408,383L412,383L411,392L405,389L408,402L402,403L401,398L389,399L392,404L389,410L391,430L405,443L403,445L387,445L384,441L376,442L362,461L358,472L359,477L368,485L371,491L370,541L386,563L388,606L393,608L403,604L409,598L410,591L416,587L415,576L418,573L428,571L430,565L435,561L434,573L427,586L418,622L431,637L434,650L439,652L441,649L446,648L456,661L461,664L468,661L470,664L463,669L464,673L459,677L452,672L446,672L442,666L430,662L416,651L401,643L398,644L397,657L401,668L416,682L420,683L424,689L418,694L418,705L409,719L413,719L422,726L430,724L431,730L426,734L425,741L431,750L431,755L441,760L459,759L461,761L453,771L455,775L472,776L483,780L483,776L488,777L493,772L495,763L498,767L501,764L505,765L502,777L488,787L460,787L452,790L460,812L470,824L483,828L483,836L480,838L486,844L484,858L488,873L491,873L498,864L511,872L539,873L529,854L531,853L537,859L537,862L543,866L544,852L540,849L540,844L544,844L550,849L552,863L552,854L562,847L563,841L561,842L559,837L555,837L554,834L548,831L557,827L547,817L551,809L568,824L572,819L579,825L585,821L589,822L582,811L583,804L578,798L556,796L560,789L568,786L567,782L559,777L562,773L580,774L578,765L579,745L564,729L562,723L565,720L576,734L583,728L586,720L592,720L596,724L596,740L590,744L600,758L605,761L605,752L609,749L611,743L618,743L615,719L616,708L621,701L620,695L622,693L629,692L633,697L634,749L630,752L629,757L619,758L623,769L625,789L634,800L645,799L650,795L662,793L666,788L666,780L671,780L683,768L686,745L690,741L690,731L693,727L698,727L700,737L715,738L719,745L716,748L707,746L702,753L702,759L696,763L696,771L690,779L691,789L684,799L689,803L697,802L699,804L698,810L709,815L712,820L720,810L730,805L731,800L736,802L744,800L748,804L742,811L739,810L724,820L720,829L714,832L696,832L694,834L686,828L681,831L677,827L669,828L666,831L656,830L643,845L643,850L651,858L652,864L643,864L637,857L631,860L608,888L611,896L609,899L604,899L600,894L593,894L582,899L564,898L564,906L570,917L569,937L560,918L556,901L546,900L541,905L537,904L535,909L531,909L534,917L534,947L537,952L535,967L547,975L547,982L542,988L542,998L549,996L554,1001L557,990L562,987L567,987L568,991L581,993L592,991L586,984L588,981L596,988L607,982L619,980L628,972L635,960L664,972L668,968L674,969L680,965L691,964L694,966L698,963L709,963L713,957L717,959L718,970L729,975L739,984L738,989L718,976L691,977L690,983L686,987L676,987L673,990L662,990L659,993L653,992L643,996L640,995L639,1000L629,1001L617,1011L609,1010L607,1016L600,1018L611,1027L628,1029L667,1040L672,1051L667,1058L663,1053L651,1051L650,1054L654,1056L654,1059L650,1060L646,1053L639,1049L631,1049L614,1041L610,1046L601,1047L602,1065L596,1066L595,1062L585,1060L589,1054L585,1052L588,1050L589,1045L582,1039L559,1042L554,1048L550,1062L559,1066L559,1072L556,1073L553,1087L560,1093L560,1098L571,1117L577,1132L577,1140L579,1142L595,1142L603,1149L623,1149L617,1162L622,1166L622,1180L636,1188L663,1184L665,1181L658,1171L660,1169L666,1174L670,1168L673,1172L674,1181L681,1183L682,1187L685,1188L687,1182L690,1185L692,1183L690,1176L692,1171L700,1174L703,1171L706,1174L704,1180L705,1191L692,1195L686,1193L687,1201L692,1206L690,1211L683,1205L680,1195L673,1193L667,1199L662,1199L648,1209L643,1216L643,1221L651,1223L653,1228L657,1230L659,1238L665,1241L664,1247L682,1260L691,1262L691,1268L685,1273L688,1277L687,1294L697,1287L700,1289L701,1296L708,1297L718,1295L719,1289L726,1289L731,1265L735,1261L729,1249L722,1246L719,1249L715,1247L713,1234L721,1225L726,1225L733,1220L736,1207L742,1204L741,1188L733,1179L729,1180L727,1175L730,1173L740,1175L744,1170L742,1150L750,1142L749,1138L745,1136L750,1132L748,1126L739,1124L744,1122L744,1116L752,1110L754,1101L759,1095L759,1091L756,1091L750,1084L756,1083L759,1071L763,1069L764,1064L762,1047L758,1046L760,1044L758,1038L763,1038L776,1045L783,1057L795,1057L800,1047L799,1035L803,1026L802,1020L799,1019L799,1014L802,1012L799,1009L799,1003L804,1003L810,988L806,981L806,972L801,972L797,967L799,963L805,962L805,957L803,955L796,957L793,955L795,949L803,950L805,948L809,934L808,927L802,916L805,913L818,910L824,917L828,918L841,902L841,889L831,870L843,871L847,865L841,858L839,847L833,841L837,834L844,832L838,805L842,793L838,792L834,785L850,769L850,763L856,767L863,767L871,764L873,758L878,758L884,754L902,754L904,746L913,735L939,733L942,726L946,728L951,726L957,741L959,739L962,741L969,740L970,737L966,729L968,715L973,709L973,703L978,693L950,689L948,687L948,678L944,674L938,675L933,671L922,682L913,671L913,666L918,661L905,652L908,649L907,647L902,647L900,643L897,643L896,648L881,646L879,644L883,640L882,626L876,629L873,628L873,621L875,620L874,598L864,602L849,586L845,588L844,596L836,611L829,610L822,603L822,593L826,582L824,575L820,573L809,574L805,569L818,556L818,550L821,547L820,525L822,519L820,517L820,507L815,502L813,482L815,477L807,467L798,462L786,450L782,451L775,464L774,495L770,502L767,517L759,524L754,533L749,530L751,521L756,517L759,508L758,477L747,478L745,476L753,473L757,464L753,459L759,453L759,446L772,425L770,410L766,407L762,393L754,391L754,378L747,366L743,366L737,361L735,353L722,346L713,346L707,353L711,372L703,372L694,357L699,349L692,343L691,334L687,330L689,318L686,315L679,316ZM1340,258L1332,267L1331,278L1337,288L1338,299L1343,308L1352,316L1358,311L1363,302L1369,299L1370,291L1367,283L1347,261ZM1660,231L1653,223L1648,221L1626,228L1596,245L1585,257L1582,265L1588,270L1599,270L1624,262L1630,257L1649,258L1656,254L1661,246ZM973,208L968,209L960,218L966,219ZM791,206L788,216L782,221L781,236L792,235L796,239L798,249L801,243L803,245L808,244L809,237L818,229L816,227L809,228L810,223L805,220L805,216L801,215L794,206ZM1129,182L1126,201L1131,200L1136,204L1141,197L1133,184ZM1118,167L1128,172L1124,165ZM866,155L864,157L864,169L870,176L867,179L856,169L855,188L857,195L864,195L869,192L871,196L880,197L883,200L871,208L877,209L874,215L868,217L874,221L871,228L875,235L870,237L867,242L868,246L874,251L871,254L860,253L848,234L848,224L840,212L828,209L832,228L830,236L835,243L834,251L838,256L838,263L844,269L856,272L861,278L850,279L848,276L845,277L850,282L848,285L850,295L845,298L839,297L833,285L826,281L828,276L820,267L820,262L817,263L811,258L809,260L813,265L808,272L803,265L794,261L787,267L781,267L779,262L774,263L772,266L769,263L765,269L760,270L755,279L756,282L761,278L768,285L767,280L769,277L771,278L776,291L777,308L782,311L783,303L787,305L787,310L790,307L802,306L806,310L807,308L818,308L821,303L824,305L821,308L822,315L815,314L812,316L816,324L813,328L806,321L806,318L804,324L801,324L801,327L805,325L808,328L804,331L806,333L804,335L800,335L795,329L796,335L780,340L779,343L776,342L778,348L775,351L780,354L782,359L781,374L788,375L795,384L795,388L801,386L806,389L803,382L805,381L808,384L809,393L812,395L809,407L813,410L820,410L818,396L821,393L839,393L846,395L848,392L852,393L855,397L854,407L857,409L858,403L863,397L881,396L887,398L892,391L907,388L910,384L916,389L922,381L928,385L934,383L941,385L947,381L956,381L961,377L977,377L980,380L980,383L975,385L976,391L979,388L982,390L978,396L988,398L993,407L986,419L947,416L931,420L926,424L912,424L920,443L933,446L946,456L954,457L959,462L958,464L943,465L934,458L916,458L908,455L899,438L885,438L870,441L867,444L866,449L876,471L880,475L882,474L887,481L884,486L904,499L922,503L930,509L929,515L933,520L934,528L932,532L934,535L944,535L963,529L982,531L991,537L1002,535L1011,527L1022,523L1047,524L1056,529L1054,535L1046,543L1047,549L1075,568L1084,568L1097,577L1102,572L1115,571L1118,560L1126,558L1127,552L1134,545L1143,544L1158,527L1165,526L1171,538L1179,539L1191,528L1194,528L1201,519L1207,519L1218,506L1215,497L1221,486L1221,480L1210,475L1210,467L1215,460L1215,444L1231,435L1252,415L1253,407L1261,402L1261,395L1269,387L1270,378L1277,373L1286,371L1289,363L1296,357L1292,344L1295,336L1295,315L1303,307L1304,301L1293,297L1287,298L1284,288L1277,280L1276,275L1244,268L1238,269L1237,263L1232,266L1231,270L1218,273L1216,266L1222,262L1223,258L1212,258L1207,263L1207,257L1201,254L1202,251L1190,252L1187,243L1196,238L1190,236L1186,241L1180,241L1173,247L1164,246L1161,243L1166,234L1167,215L1165,209L1160,215L1159,230L1157,232L1152,230L1150,238L1146,239L1145,242L1140,241L1140,229L1143,227L1142,224L1147,222L1147,213L1143,208L1133,206L1123,207L1124,213L1132,214L1141,221L1133,221L1137,225L1136,232L1133,232L1129,226L1126,227L1126,232L1131,238L1127,242L1114,224L1113,231L1118,237L1116,240L1109,235L1106,236L1106,229L1101,228L1100,241L1104,243L1101,246L1101,255L1105,259L1105,263L1098,265L1095,271L1096,281L1091,285L1085,282L1089,276L1084,271L1084,257L1081,257L1079,260L1075,259L1081,268L1081,278L1078,281L1076,279L1076,270L1070,266L1068,273L1062,271L1066,276L1064,286L1057,277L1056,259L1060,242L1066,238L1068,240L1073,233L1071,223L1075,220L1071,216L1073,207L1066,205L1069,202L1069,197L1067,195L1063,196L1062,193L1064,190L1071,190L1071,185L1075,181L1066,169L1060,169L1048,160L1048,154L1041,154L1048,176L1048,192L1040,201L1040,209L1043,211L1044,218L1042,219L1036,213L1034,206L1036,184L1023,185L1017,196L1021,213L1025,218L1031,220L1034,225L1033,229L1028,231L1024,237L1028,250L1027,260L1030,263L1024,268L1025,291L1021,293L1029,301L1029,312L1027,313L1022,309L1022,314L1028,318L1029,323L1027,327L1024,326L1018,317L1017,329L1012,332L1010,330L1010,313L1006,311L1006,302L1002,291L999,289L993,290L989,281L986,281L979,288L972,286L973,282L978,282L981,269L991,259L989,255L990,241L983,235L979,238L980,249L978,251L973,247L971,240L967,239L963,258L960,257L959,243L958,248L953,250L951,258L943,258L941,254L939,261L933,261L931,259L932,252L929,249L930,226L926,226L923,231L917,233L916,228L912,226L913,210L907,203L908,195L905,190L894,189L889,194L886,190L886,168L878,168L875,171L873,164ZM890,147L880,160L882,165L890,165L895,161L894,153ZM925,99L917,107L928,116L929,120L933,120L935,108L928,105ZM967,90L952,95L954,107L957,105L962,106L962,102L966,101L964,96ZM920,71L926,76L929,88L932,85L936,86L936,96L939,99L942,91L949,94L951,88L944,80L942,84L927,69Z"/></svg>
+    <div class="rings"><i></i><i></i><i></i><i></i><b></b></div>
+    <span class="tag">Svalbard</span>
+  </div>
+  <div class="wrap">
+    <h1>The Arctic is calling. Will you answer?</h1>
+    <p>A global network of citizens and leaders answering a call from the Arctic, and a call to the world, to safeguard sea ice, glaciers and the web of life for future generations.</p>
+    <div class="cta-row">
+      <a class="btn btn-sun" href="#join">Join the network</a>
+      <a class="btn btn-line" href="https://polheim.no/products/the-arctic-call-female-leadership-expedition-september">See the expedition</a>
+    </div>
+  </div>
+  <svg class="ice" viewBox="0 0 1200 170" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 170V105l90-22 70 18 110-44 80 30 120-52 90 36 140-40 100 30 130-48 90 34 110-26 70 20V170Z" fill="#e3f1f3" opacity=".22"/>
+    <path d="M0 170V135l130-30 90 22 150-38 100 28 160-34 120 26 140-30 110 22 100-18V170Z" fill="#e3f1f3" opacity=".5"/>
+    <path d="M0 170V150l160-22 130 14 180-22 140 16 200-20 150 14 240-12V170Z" fill="var(--bg)"/>
+  </svg>
+</div>
+
+<section id="mission">
+  <div class="wrap mission">
+    <div>
+      <h2>One mission: save the Arctic ice, protect the world’s future.</h2>
+    </div>
+    <div>
+      <blockquote>Sea ice and glaciers are our planet’s early-warning system. The Arctic is changing fast, and so is the cryosphere all over the world.</blockquote>
+      <p class="lead">Combining wisdom, science and lived experience, we empower positive climate action by inspiring, educating and engaging people everywhere. Hope is active: when we act together, big dreams become reality.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="head"><h2>Three ways we turn concern into action</h2></div>
+    <div class="aims">
+      <div><h3>Connect</h3><p>Bring people to the living Arctic, so hope and action start from direct experience.</p></div>
+      <div><h3>Inspire</h3><p>Use stories, science and Indigenous wisdom to build a sense of global responsibility.</p></div>
+      <div><h3>Act at home</h3><p>Empower concrete steps in your own community to protect Earth’s frozen regions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="exp" id="expedition">
+  <div class="wrap">
+    <h2>What the Arctic teaches us about our planet’s future</h2>
+    <p class="lead" style="margin-top:1.2rem">Our expeditions take a collaborative cohort of women leaders and supportive allies from many nations to Svalbard in the high Arctic: five days aboard the MS Serenissima, immersed in the ice, the wildlife and each other’s ideas.</p>
+    <dl class="facts">
+      <div><dt>Focus</dt><dd>Leadership, Indigenous knowledge, science storytelling and creative action.</dd></div>
+      <div><dt>Format</dt><dd>A ship-based Arctic journey with daily landings, citizen science and a 1.5-hour learning circle before dinner.</dd></div>
+      <div><dt>Outcomes</dt><dd>Personal leadership growth, community action plans, educator and media toolkits, and a lasting network.</dd></div>
+    </dl>
+    <div class="cta-row">
+      <a class="btn btn-sun" href="https://polheim.no/products/the-arctic-call-female-leadership-expedition-september">Itinerary and booking</a>
+      <a class="btn btn-line" href="https://polheim.no/products/support-the-arctic-call">Support the Arctic Call</a>
+    </div>
+    <p class="note" style="color:#9bb4bf;margin-top:1rem">Bookings are handled by our partner Polheim, so these links open polheim.no.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><h2>What you take home</h2></div>
+    <div class="take">
+      <div><h3>Action blueprint</h3><p>A practical plan for your community. So far we’ve built tools for school talks, village projects, arts-science collaborations, youth council engagement, festivals, quilt activism and film nights.</p></div>
+      <div><h3>Educator and youth toolkit</h3><p>Short videos, simple lesson prompts, and language that reaches kids, their teachers and their parents.</p></div>
+      <div><h3>Digital hub access</h3><p>Share resources, track ripple effects and get feedback from the network.</p></div>
+      <div><h3>Story assets</h3><p>Key facts, metaphors and short scripts for talks, LinkedIn, podcasts and local media.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap voices">
+    <figure>
+      <blockquote>The expertise, wisdom and lived experience of our group has really impressed me.</blockquote>
+      <figcaption>Sabine Ripp, co-founder</figcaption>
+    </figure>
+    <figure>
+      <blockquote>It makes me proud to be part of this amazing initiative.</blockquote>
+      <figcaption>Maria Trettvik, co-founder</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap join">
+    <div>
+      <h2>You don’t need a ticket to answer the call</h2>
+      <p class="lead" style="margin-top:1rem">Join the network to hear about future expeditions, new toolkits and ways to act where you live. Tell us your region or language and we’ll connect you with someone local.</p>
+    </div>
+    <div>
+      <form id="f">
+        <label for="em" class="sr" style="position:absolute;left:-9999px">Email address</label>
+        <input id="em" type="email" required placeholder="Your email address" autocomplete="email">
+        <button class="btn btn-dark" type="submit">Join the network</button>
+      </form>
+      <p id="ok" role="status"></p>
+      <p class="note">This opens a pre-written email to our team. We reply personally.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="faq">
+  <div class="wrap">
+    <div class="head"><h2>Questions, answered</h2></div>
+    <details><summary>Can I contact a local representative in my own country or region?</summary><p>Yes. Tell us where you’re from or which language you’re most comfortable in, and we’ll find someone to help you.</p></details>
+    <details><summary>Will I see any wildlife?</summary><p>You will experience Arctic wildlife. That may include walruses, seals, whales, puffins and other birds, Arctic foxes, reindeer and, with luck, polar bears.</p></details>
+    <details><summary>Do I need to be physically fit to join?</summary><p>No, but general good health is appropriate. If you have concerns about your physical abilities, please contact us.</p></details>
+    <details><summary>Will it be cold?</summary><p>It’s late summer, so expect around 5 °C with some wind chill. Good layering keeps you warm, and we send a clothing list after you sign up.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>The Arctic Call</h3>
+      <p>Safeguarding sea ice, glaciers and the web of life for future generations.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="mailto:hilde@polheim.no">hilde@polheim.no</a></li>
+        <li><a href="tel:+47909 22561">+47 909 22 561</a></li>
+        <li>Vei 232 131, 9170 Longyearbyen</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/the-arctic-call">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/the_arctic_call">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1GQ7o2XKut/">Facebook</a></li>
+        <li><a href="https://www.youtube.com/@TheArcticCall-b8b">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var v=document.getElementById('em').value.trim();
+  if(!v)return;
+  var s=encodeURIComponent('Join The Arctic Call network');
+  var b=encodeURIComponent('Hello! Please add me to The Arctic Call network.\n\nMy email: '+v+'\nMy region / language: ');
+  document.getElementById('ok').textContent='Opening your email app…';
+  window.location.href='mailto:hilde@polheim.no?subject='+s+'&body='+b;
+});
+</script>
+</body>
+</html>
